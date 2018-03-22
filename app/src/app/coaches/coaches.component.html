@@ -1,0 +1,59 @@
+<ol id="breadcrumb" class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a routerLink="">Home</a>
+  </li>
+  <li class="breadcrumb-item active">Técnicos</li>
+</ol>
+
+<table id="coachstable" class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Foto</th>
+      <th>Nome</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="rows">
+    <tr *ngFor="let item of coaches | async">
+      <td>
+        <img id="image" src="{{item.photo}}" alt="photo" class="img-fluid">
+      </td>
+      <td>{{item.name}}</td>
+      <td>
+        <div id="buttonbar">
+          <i id="pencilicon" [routerLink]="['editcoach', item.key]" class="fa fa-pencil fa-lg" aria-hidden="true" data-toggle="tooltip" title="Editar Técnico"></i>
+          <i id="trashicon" class="fa fa-trash fa-lg" aria-hidden="true" data-toggle="tooltip" title="Remover Técnico" (click)="deleteItem(item)"></i>
+        </div>
+      </td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+<nav id="pagination" aria-label="Page navigation example">
+  <ul class="pagination justify-content-center" *ngIf="pager.pages && pager.pages.length">
+    <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+      <a (click)="setPage(1)" class="page-link">
+        <<</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+      <a (click)="setPage(pager.currentPage - 1)" class="page-link">Anterior</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item">
+      <a (click)="setPage(page)" class="page-link">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+      <a (click)="setPage(pager.currentPage + 1)" class="page-link">Próximo</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+      <a (click)="setPage(pager.totalPages)" class="page-link">>></a>
+    </li>
+  </ul>
+</nav>
+
+<div>
+  <button id="btnadd" routerLink='/addcoach' class="btn btn-primary btn-lg" data-toggle="tooltip" title="Adicionar Técnico">
+    <i id="addicon" class="fa fa-plus" aria-hidden="true"></i>
+  </button>
+</div>

@@ -1,0 +1,44 @@
+<ol id="breadcrumb" class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a routerLink="">Home</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a routerLink="/coaches">Técnicos</a>
+  </li>
+  <li class="breadcrumb-item active">Editar</li>
+</ol>
+
+<div class="container">
+  <form id="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <div class="form-group row has-danger" [class.has-danger]="!name.valid && name.touched" [class.has-feedback]="!name.valid && name.touched">
+      <label for="inputname" class="col-sm-2 col-form-label">Nome*:</label>
+      <div class="col-sm-10">
+        <input type="text" name="name" class="form-control" id="inputname" placeholder="Nome" required ngModel="{{(coach | async)?.name}}" #name="ngModel" >
+        <div class="form-control-feedback" *ngIf="!name.valid && name.touched">
+          Campo "Nome" é obrigatório.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputfoto" class="col-sm-2 col-form-label">Foto:</label>
+      <img id="image" *ngIf="showOld" src="{{(coach | async)?.photo}}" alt="edituser" class="img-thumbnail">
+      <img id="image" *ngIf="showNew" src="{{preview | async}}" alt="edituser" class="img-thumbnail">
+    </div>
+
+    <div class="form-group row">
+      <input type="file" class="form-control-file" id="inputfile" aria-describedby="fileHelp" (change)="detectFile($event)">
+    </div>
+
+    <div class="form-inline">
+      <div class="col-sm-4">
+        <button routerLink="/coaches" id="btncancel" type="submit" class="btn btn-danger">Cancelar</button>
+      </div>
+
+      <div class="col-sm-4">
+        <button id="btnsave" type="submit" class="btn btn-primary" [disabled]="!f.valid">Salvar</button>
+      </div>
+    </div>
+  </form>
+</div>

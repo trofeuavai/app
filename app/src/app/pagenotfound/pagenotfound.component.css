@@ -1,0 +1,17 @@
+#allpage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#logo{
+    margin-top: 50px;
+    margin-left: 39%;
+}
+
+#text{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    font-family: 'Lucida Sans';
+}

@@ -1,0 +1,29 @@
+<nav id="navbar" class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" (click)="toggleMenu()" data-toggle="tooltip" title="Menu">
+        <i id="menuicon" class="fa fa-bars fa-lg" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+  <a id="appname" class="navbar-brand">
+    <i class="fa fa-trophy" aria-hidden="true"></i>
+    {{title}}
+  </a>
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tooltip" title="Settings" (click)='trocarSenha()'>
+        <i id="usericon" class="fa fa-user-circle fa-lg" aria-hidden="true"></i>
+        <span id="nmusericon">Admin</span>
+      </a>
+    </li>
+    <span>
+      
+    </span>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tooltip" title="Sair" (click)='fazerLogout()'>
+        <i id="cogicon" class="fa fa-power-off fa-lg" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</nav>

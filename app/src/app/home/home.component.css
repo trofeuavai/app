@@ -1,0 +1,1156 @@
+#breadcrumb{
+    position: absolute;
+    right: 7px;
+    width: 5%;
+    margin-top: 10px;
+    background: white;
+}
+
+#sn{
+    font-size: 14pt;
+}
+
+#btnsave{
+    position: absolute;
+    left: 150px;
+    top: 100px;
+}
+
+#selectmatches{
+    position: absolute;
+    left: 10px;
+    top: 50px;
+}
+
+#selectstrategy{
+    position: absolute;
+    left: 10px;
+    top: 100px;
+}
+
+.container{
+    margin-left: 300px;
+    height: 550px;
+    width: 900px;
+    margin-top: 10px;
+}
+
+#soccerfield{
+    height: 550px;
+    width: 900px;
+    box-shadow: 1px 1px  #888888;
+}
+
+#btnsave[disabled]{
+    cursor: not-allowed;
+}
+
+
+/* ############# Goleiro ############# */
+
+
+#divgoleiro{
+    position: absolute;
+    left: 60px;
+    top: 220px;
+    height: 100px;
+    width: 130px;
+}
+
+
+#goleiro{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroagoleiro{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmgoleiro{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradegoleiro{
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Zagueiro Esquerdo ############# */
+
+
+
+#divzagueiroesquerdo{
+    position: absolute;
+    left: 170px;
+    top: 170px;
+    height: 100px;
+    width: 130px;
+}
+
+#zagueiroesquerdo{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroazagueiroesquerdo{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmzagueiroesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradezagueiroesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Zagueiro Direito ############# */
+
+
+
+#divzagueirodireito{
+    position: absolute;
+    left: 170px;
+    top: 300px;
+    height: 100px;
+    width: 130px;
+}
+
+
+#zagueirodireito{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroazagueirodireito{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmzagueirodireito{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradezagueirodireito{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Lateral Esquerdo ############# */
+
+
+
+#divlateralesquerdo{
+    position: absolute;
+    left: 260px;
+    top: 68px;
+    height: 100px;
+    width: 130px;
+}
+
+#lateralesquerdo{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroalateralesquerdo{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmlateralesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradelateralesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Zagueiro Direito ############# */
+
+
+
+#divlateraldireito{
+    position: absolute;
+    left: 260px;
+    top: 380px;
+    height: 100px;
+    width: 130px;
+}
+
+
+#lateraldireito{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroalateraldireito{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmlateraldireito{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradelateraldireito{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Volante Esquerdo ############# */
+
+
+#divvolanteesquerdo{
+    position: absolute;
+    left: 410px;
+    top: 170px;
+    height: 100px;
+    width: 130px;
+}
+
+#volanteesquerdo{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroavolanteesquerdo{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmvolanteesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradevolanteesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Volante Central ############# */
+
+
+
+#divvolantecentral{
+    position: absolute;
+    left: 295px;
+    top: 225px;
+    height: 100px;
+    width: 130px;
+}
+
+#volantecentral{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroavolantecentral{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmvolantecentral{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradevolantecentral{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Volante Direito ############# */
+
+
+
+#divvolantedireito{
+    position: absolute;
+    left: 410px;
+    top: 300px;
+    height: 100px;
+    width: 130px;
+}
+
+#volantedireito{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroavolantedireito{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmvolantedireito{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradevolantedireito{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Ponta Esquerdo ############# */
+
+
+
+#divpontaesquerdo{
+    position: absolute;
+    left: 590px;
+    top: 70px;
+    height: 100px;
+    width: 130px;
+}
+
+#pontaesquerdo{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroapontaesquerdo{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmpontaesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradepontaesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Ponta Direito ############# */
+
+
+
+#divpontadireito{
+    position: absolute;
+    left: 590px;
+    top: 380px;
+    height: 100px;
+    width: 130px;
+}
+
+#pontadireito{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroapontadireito{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmpontadireito{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradepontadireito{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Meia Esquerdo #############              (Precisa arrumar)*/
+
+
+
+#divmeiaesquerdo{
+    position: absolute;
+    left: 540px;
+    top: 175px;
+    height: 100px;
+    width: 130px;
+}
+
+#meiaesquerdo{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroameiaesquerdo{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmmeiaesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#grademeiaesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Meia Central ############# */
+
+#divmeiacentral{
+    position: absolute;
+    left: 545px;
+    top: 225px;
+    height: 100px;
+    width: 130px;
+}
+
+#meiacentral{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroameiacentral{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmmeiacentral{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#grademeiacentral{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Meia Direito #############                  (Precisa arrumar)*/
+
+
+
+#divmeiadireito{
+    position: absolute;
+    left: 540px;
+    top: 280px;
+    height: 100px;
+    width: 130px;
+}
+
+#meiadireito{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroameiadireito{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmmeiadireito{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#grademeiadireito{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+/* ############# Centroavante #############*/
+
+
+
+
+#divcentroavante{
+    position: absolute;
+    left: 720px;
+    top: 220px;
+    height: 100px;
+    width: 130px;
+}
+
+#centroavante{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroacentroavante{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmcentroavante{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradecentroavante{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Atacante Esquerdo #############              (Precisa arrumar)*/
+
+
+
+#divatacanteesquerdo{
+    position: absolute;
+    left: 720px;
+    top: 170px;
+    height: 100px;
+    width: 130px;
+}
+
+#atacanteesquerdo{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroaatacanteesquerdo{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmatacanteesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradeatacanteesquerdo{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Atacante Direito #############              (Precisa arrumar)*/
+
+
+
+#divatacantedireito{
+    position: absolute;
+    left: 720px;
+    top: 300px;
+    height: 100px;
+    width: 130px;
+}
+
+#atacantedireito{
+    position: absolute;
+    left: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+#coroaatacantedireito{
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+}
+
+#nmatacantedireito{
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    height: 20px;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradeatacantedireito{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Reserva 1 ############# */
+
+
+
+#divreserva1{
+    position: absolute;
+    left: 490px;
+    top: 485px;
+    height: 65px;
+    width: 80px;
+}
+
+#reserva1{
+    position: absolute;
+    left: 30px;
+    height: 60px;
+    width: 60px;
+}
+
+#coroareserva1{
+    position: absolute;
+    bottom: 20px;
+    left: -5px;
+    height: 40px;
+    width: 40px;
+}
+
+#nmreserva1{
+    position: absolute;
+    bottom: 0px;
+    left: 30px;
+    height: 15px;
+    width: 70px;
+    font-size: 10px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradereserva1{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 18px;
+    text-align: center;
+    align-items: center;
+    height: 25px;
+    width: 30px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Reserva 2 ############# */
+
+
+
+#divreserva2{
+    position: absolute;
+    left: 630px;
+    top: 485px;
+    height: 65px;
+    width: 80px;
+}
+
+#reserva2{
+    position: absolute;
+    left: 30px;
+    height: 60px;
+    width: 60px;
+}
+
+#coroareserva2{
+    position: absolute;
+    bottom: 20px;
+    left: -5px;
+    height: 40px;
+    width: 40px;
+}
+
+#nmreserva2{
+    position: absolute;
+    bottom: 0px;
+    left: 30px;
+    height: 15px;
+    width: 70px;
+    font-size: 10px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradereserva2{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 18px;
+    text-align: center;
+    align-items: center;
+    height: 25px;
+    width: 30px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+
+/* ############# Reserva 3 ############# */
+
+
+
+#divreserva3{
+    position: absolute;
+    left: 770px;
+    top: 485px;
+    height: 65px;
+    width: 60px;
+}
+
+
+#reserva3{
+    position: absolute;
+    left: 30px;
+    height: 60px;
+    width: 60px;
+}
+
+#coroareserva3{
+    position: absolute;
+    bottom: 20px;
+    left: -5px;
+    height: 40px;
+    width: 40px;
+}
+
+#nmreserva3{
+    position: absolute;
+    bottom: 0px;
+    left: 30px;
+    height: 15px;
+    width: 70px;
+    font-size: 10px;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#gradereserva3{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 18px;
+    text-align: center;
+    align-items: center;
+    height: 25px;
+    width: 30px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+#logotrofeuavai{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    height: 60px;
+    width: 90px;
+}
+
+#mediaequipe{
+    position: absolute;
+    left: 20px;
+    bottom: 0px;
+    height: 70px;
+    width: 80px;
+    
+}
+
+#average{
+    position: absolute;
+    font-size: 20pt;
+    text-align: center;
+    bottom: 10px;
+    color: white;
+    width: 70px;
+    text-shadow: 1px 1px 1px black;
+}
+
+#nmaverage{
+    position: absolute;
+    bottom: 10px;
+    left: 70px;
+    height: 20px;
+    width: 130px;
+    font-size: 10pt;
+    text-align: center;
+    color: white;
+    background: navy;
+}
+
+#teamphoto{
+    position: absolute;
+    left: 350px;
+    top: 3px;
+    height: 40px;
+    width: 40px;
+}
+
+#opponentphoto{
+    position: absolute;
+    left: 530px;
+    top: 3px;
+    height: 40px;
+    width: 40px;
+}
+
+#score{
+    position: absolute;
+    font-size: 20pt;
+    color: white;
+    left: 430px;
+    top: 3px;
+    height: 30px;
+    text-shadow: 1px 1px 1px black;
+}
+
+#matchinformation{
+    position: absolute;
+    font-size: 12pt;
+    color: white;
+    left: 300px;
+    top: 43px;
+    height: 15px;
+    text-shadow: 1px 1px 1px black;
+}
+
+#substituicao{
+    position: absolute;
+    left: 390px;
+    top: 485px;
+    height: 65px;
+    width: 80px;
+}
+
+option{
+    font-size: 11pt;
+}

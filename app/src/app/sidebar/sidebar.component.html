@@ -1,0 +1,34 @@
+<div id="wrapper" class={{toggle}}>
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <button id="btnclose" type="button" class="close" aria-label="Close" (click)="toggleSidebar()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <li>
+                <span> </span>
+            </li>
+            <li class="sidebar-brand">
+                <a routerLink="" (click)="toggleSidebar()">Home</a>
+            </li>
+            <li>
+                <a routerLink="/players" (click)="toggleSidebar()">Jogadores</a>
+            </li>
+            <li>
+                <a routerLink="/team" (click)="toggleSidebar()">Times</a>
+            </li>
+            <li>
+                <a routerLink="/matches" (click)="toggleSidebar()">Partidas</a>
+            </li>
+            <li>
+                <span> </span>
+            </li>
+            <li>
+                <span id="version"> Versão: 1.0</span>
+            </li>
+            <li>
+                <span id="copyright">©2018 Jonatas A. Tavares</span>
+            </li>
+        </ul>
+    </div>
+
+</div>

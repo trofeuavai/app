@@ -1,0 +1,30 @@
+<div id="allpage" class="bg-primary">
+  <div id="container" class="container">
+    <img id="logo" src="https://trofeuavai.github.io/webapp/assets/trofeuavailogo.png" alt="logo">
+    <form id="form">
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <input [(ngModel)]="usuario.nome" type="text" name='login' class="form-control" id="inputlogin" placeholder="Login">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <input [(ngModel)]="usuario.senha" type="password" name='senha' class="form-control" id="inputpassword" placeholder="Senha">
+        </div>
+      </div>
+      <div id="divbtnlogin" class="form-inline">
+        <div class="col-sm-6">
+          <button routerLink="/" id="btnlogin" type="submit" class="btn btn-primary" (click)="fazerLogin()">Login
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <span *ngIf="failMessage" id="fail">
+        <strong>Login falhou !</strong> Verifique o nome de usuário ou a senha.
+      </span>
+    </form>
+  </div>
+  <div id="footer">
+    <span>©2018 Jonatas A. Tavares</span>
+  </div>
+</div>

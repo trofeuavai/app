@@ -1,0 +1,58 @@
+<ol id="breadcrumb" class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a routerLink="">Home</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a routerLink="/players">Jogadores</a>
+  </li>
+  <li class="breadcrumb-item active">Adicionar Jogadores</li>
+</ol>
+
+<div class="container">
+  <form id="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <div class="form-group row has-danger" [class.has-danger]="!name.valid && name.touched" [class.has-feedback]="!name.valid && name.touched">
+      <label for="inputname" class="col-sm-2 col-form-label">Nome*:</label>
+      <div class="col-sm-10">
+        <input type="text" name="name" class="form-control" id="inputname" placeholder="Nome" ngModel required #name="ngModel">
+        <div class="form-control-feedback" *ngIf="!name.valid && name.touched">
+          Campo "Nome" é obrigatório.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group row has-danger" [class.has-danger]="!position.valid && position.touched" [class.has-feedback]="!position.valid && position.touched">
+      <label for="inputposition" class="col-sm-2 col-form-label">Posição*:</label>
+      <div class="col-sm-10">
+        <select name="position" class="form-control input-sm" id="selectposition" ngModel required #position="ngModel">
+          <option value="" disabled selected>Selecione a posição</option>
+          <option *ngFor="let item of positions | async" [ngValue]="item.name">{{item.name}}</option>
+        </select>
+        <div class="form-control-feedback" *ngIf="!position.valid && position.touched">
+          Campo "Posição" é obrigatório.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputfoto" class="col-sm-2 col-form-label">Foto*:</label>
+      <img id="image" *ngIf="!show" src="https://trofeuavai.github.io/webapp/assets/adduser.png" alt="adduser" class="img-thumbnail">
+      <img id="image1" *ngIf="show" src="{{preview | async}}" alt="adduser" class="img-thumbnail">
+    </div>
+
+    <div class="form-group row">
+      <input type="file" class="form-control-file" #inputfile aria-describedby="fileHelp" name="file" (change)="detectFile($event)">
+    </div>
+
+    <div class="form-inline">
+      <div class="col-sm-4">
+        <button routerLink="/players" id="btncancel" type="submit" class="btn btn-danger">Cancelar</button>
+      </div>
+
+      <div class="col-sm-4">
+        <button id="btnsave" type="submit" class="btn btn-primary" [disabled]="!f.valid || !filenotempty">Salvar</button>
+      </div>
+    </div>
+  </form>
+</div>

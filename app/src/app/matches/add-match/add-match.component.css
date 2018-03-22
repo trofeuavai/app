@@ -1,0 +1,28 @@
+#breadcrumb{
+    position: absolute;
+    right: 10px;
+    width: 25%;
+    margin-top: 10px;
+    background: white;
+}
+
+#form{
+    margin-left: 200px;
+    margin-top: 70px;
+    width: 50%;
+    height: 80%;
+}
+
+#btncancel{
+    cursor: pointer;
+    margin-left: 370px;
+}
+
+#btnsave{
+    cursor: pointer;
+    margin-left: 300px;
+}
+
+#btnsave[disabled]{
+    cursor: not-allowed;
+}

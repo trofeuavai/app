@@ -1,0 +1,50 @@
+<ol id="breadcrumb" class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a routerLink="">Home</a>
+  </li>
+  <li class="breadcrumb-item active">Partidas</li>
+</ol>
+
+<div class="container">
+  <table class="table table-fixed">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Placar</th>
+        <th>Adversário</th>
+        <th>Data</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="rows">
+      <span id="zeropartidas" *ngIf="(matches | async)?.length==0">
+        <b>Nenhuma partida encontrada.</b>
+      </span>
+      <tr *ngFor="let item of matches | async">
+        <td>{{item.team.name}}</td>
+        <td>{{item.score}}</td>
+        <td>{{item.opponent.name}}</td>
+        <td>{{item.date}}</td>
+        <td>
+          <div id="buttonbar">
+            <i id="pencilicon" [routerLink]="['editmatches', item.key]" class="fa fa-pencil fa-lg" aria-hidden="true" data-toggle="tooltip"
+              title="Editar Partida"></i>
+            <i id="usersicon" [routerLink]="['editplayersmatch', item.key]" class="fa fa-users fa-lg" aria-hidden="true" data-toggle="tooltip"
+              title="Editar Jogadores da Partida"></i>
+            <i id="trashicon" class="fa fa-trash fa-lg" aria-hidden="true" data-toggle="tooltip" title="Remover Partida" (click)="deleteItem(item)"></i>
+          </div>
+        </td>
+      </tr>
+  </table>
+</div>
+<div id="qtdregistros" *ngIf="(matches | async)?.length>0">
+  <span>
+    Encontrado {{(matches | async)?.length}} registro(s).
+  </span>
+</div>
+
+<div>
+  <button id="btnadd" routerLink='/addmatch' class="btn btn-primary btn-lg" data-toggle="tooltip" title="Adicionar Partida">
+    <i id="addicon" class="fa fa-plus" style="font-size:18px" aria-hidden="true"></i>
+  </button>
+</div>

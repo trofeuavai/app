@@ -1,0 +1,109 @@
+#buttonbar i{
+    margin-right: 20px;
+}
+
+#pencilicon{
+    cursor: pointer;
+    color: green;
+}
+
+#trashicon{
+    cursor: pointer;
+    color:red;
+}
+
+#btnadd{
+    position: absolute;
+    bottom: 50px;
+    right: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: solid 0px #888888;
+    box-shadow: 0.5px 0.5px  #888888;
+}
+
+#breadcrumb{
+    position: absolute;
+    right: 10px;
+    width: 15%;
+    margin-top: 10px;
+    background: white;
+}
+
+#image{
+    max-width:30px;
+    max-height:30px;
+    width: auto;
+    height: auto;
+}
+
+#image:hover{
+    display: block;
+    max-width:70px;
+    max-height:70px;
+    width: auto;
+    height: auto;
+}
+
+a {
+    cursor: pointer;
+}
+
+
+#zeroplayers{
+    text-align: center;
+    font-size: 12pt;
+    margin-top: 5px;
+    margin-left: 400px;
+    color: gray;
+}
+
+#qtdregistros{
+    position: absolute;
+    width: 200px;
+    bottom: 10px;
+    left: 45%;
+}
+
+.container{
+    position: relative;
+    margin-left: 120px;
+    margin-top: 80px;
+}
+
+table {
+    width: 100%;
+}
+
+thead, tbody, tr, td, th {
+    display: block;
+}
+
+thead{
+    background-color : #c8ccb9;
+}
+
+thead th {
+    height: 50px;
+}
+
+tbody {
+    overflow-y: auto;
+    height: 380px;
+}
+
+tbody td, thead th {
+    float: left;
+    width: 20%;
+}
+
+tr:after {
+    clear: both;
+    content: ' ';
+    display: block;
+    visibility: hidden;
+}
+
+#rows :hover{
+    background-color: #c8ccb9;
+}

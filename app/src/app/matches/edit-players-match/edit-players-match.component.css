@@ -1,0 +1,153 @@
+#playerstable{
+    position: relative;
+    width: 80%;
+    margin-left: 50px;
+    box-shadow: 0px 1px 1px 0px #888888;
+    border-collapse:collapse;
+}
+
+#rows{
+    overflow-y: auto;
+}
+
+
+#rows :hover{
+    background: #ebe5e5;
+}
+
+#buttonbar i{
+    margin-right: 20px;
+}
+
+#trashicon{
+    cursor: pointer;
+    color:red;
+}
+
+#breadcrumb{
+    position: absolute;
+    right: 10px;
+    width: 30%;
+    margin-top: 10px;
+    background: white;
+}
+
+#form{
+    position: absolute;
+    margin-top: 30px;
+    margin-right: 15px;
+}
+
+#btnsave{
+    cursor: pointer;
+    margin-left: 380px;
+}
+
+#btnsave[disabled]{
+    cursor: not-allowed;
+}
+
+.col2{
+    margin-top: 20px;
+}
+
+.form{
+    margin-top: 50px;
+}
+
+
+#substitutelabel{
+    position: relative;
+    margin-top: 5px;
+}
+
+#substitute{
+    position: relative;
+    margin-top: 5px;
+    margin-left: 125px;
+}
+
+#bestplayerlabel{
+    position: relative;
+    margin-top: 5px;
+}
+
+#bestplayer{
+    position: relative;
+    margin-top: 5px;
+    margin-left: 50px;
+}
+
+#zeroplayers{
+    margin-left: 120px;
+}
+
+#divtable{
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 0px;
+    width: 50%;
+}
+
+#divform{
+    position: relative;
+    margin-top: 80px;
+    margin-left: 60%;
+    width: 70%;
+    background: gray;
+}
+
+#td2{
+    padding-left: 120px;
+}
+
+#td3{
+    padding-left: 150px;
+}
+
+#td4{
+    padding-left: 120px;
+}
+
+tbody {
+    margin-top: 3px;
+    position: fixed;
+    overflow-y: auto;
+    height: 380px;
+    width: 100%;
+}
+
+#qtdregistros{
+    position: absolute;
+    width: 200px;
+    bottom: 10px;
+    left: 15%;
+}
+
+#addDone{
+    color: green;
+    font-size: 12px;
+    background: white;
+    margin-left: 110px;
+ }
+
+ #addFail{
+    color: red;
+    font-size: 12px;
+    background: white;
+    margin-left: 110px;
+ }
+
+ #removeDone{
+    color: green;
+    font-size: 12px;
+    background: white;
+    margin-left: 110px;
+ }
+
+ #removeFail{
+    color: red;
+    font-size: 12px;
+    background: white;
+    margin-left: 110px;
+ }

@@ -1,0 +1,570 @@
+<ol id="breadcrumb" class="breadcrumb">
+    <li class="breadcrumb-item active">
+        Home
+    </li>
+</ol>
+<div class="col-sm-2">
+    <form id="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <select name="match" class="form-control input-sm" id="selectmatches" ngModel required #match="ngModel">
+            <option value="" disabled selected>Selecione a partida</option>
+            <option *ngFor="let item of matches | async" [ngValue]="item">{{item.team.name}} x {{item.opponent.name}} - ({{item.date}})</option>
+        </select>
+        <div class="col-sm-4">
+            <button id="btnsave" type="submit" class="btn btn-primary" [disabled]="!f.valid">Enviar</button>
+        </div>
+    </form>
+</div>
+<div class="container">
+    <img id="soccerfield" src="https://trofeuavai.github.io/webapp/assets/campo.jpg" alt="Campo de Futebol">
+    <div id="imgPlayers" *ngFor="let item of players | async">
+        <div id="divgoleiro">
+            <img *ngIf='item.position=="Goleiro"' id="goleiro" src="{{item.photo}}" alt="goalkeeper">
+            <img *ngIf='item.position=="Goleiro" && item.bestplayer==true' id="coroagoleiro" src="https://trofeuavai.github.io/webapp/assets/coroa.png" alt="coroagoalkeeper">
+            <span *ngIf='item.position=="Goleiro"' id="nmgoleiro">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Goleiro" && item.grade==""' id="gradegoleiro" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Goleiro" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradegoleiro" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Goleiro" && item.grade >= "1" && item.grade <= "4.9"' id="gradegoleiro" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Goleiro" && item.grade >= "5" && item.grade <= "5.9"' id="gradegoleiro" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Goleiro" && item.grade >= "6" && item.grade <= "6.9"' id="gradegoleiro" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Goleiro" && item.grade >= "7"' id="gradegoleiro" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divzagueiroesquerdo">
+            <img *ngIf='item.position=="Zagueiro (Esquerdo)"' id="zagueiroesquerdo" src="{{item.photo}}" alt="zagueiroesquerdo">
+            <img *ngIf='item.position=="Zagueiro (Esquerdo)" && item.bestplayer==true' id="coroazagueiroesquerdo" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Zagueiro (Esquerdo)"' id="nmzagueiroesquerdo">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Esquerdo)" && item.grade == ""' id="gradezagueiroesquerdo" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Esquerdo)" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradezagueiroesquerdo"
+                style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Esquerdo)" && item.grade >= "1" && item.grade <= "4.9"' id="gradezagueiroesquerdo"
+                style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Esquerdo)" && item.grade >= "5" && item.grade <= "5.9"' id="gradezagueiroesquerdo"
+                style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Esquerdo)" && item.grade >= "6" && item.grade <= "6.9"' id="gradezagueiroesquerdo"
+                style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Esquerdo)" && item.grade >= "7"' id="gradezagueiroesquerdo" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divzagueirodireito">
+            <img *ngIf='item.position=="Zagueiro (Direito)"' id="zagueirodireito" src="{{item.photo}}" alt="zagueirodireito">
+            <img *ngIf='item.position=="Zagueiro (Direito)" && item.bestplayer==true' id="coroazagueirodireito" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Zagueiro (Direito)"' id="nmzagueirodireito">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Direito)" && item.grade == ""' id="gradezagueirodireito" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Direito)" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradezagueirodireito"
+                style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Direito)" && item.grade >= "1" && item.grade <= "4.9"' id="gradezagueirodireito" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Direito)" && item.grade >= "5" && item.grade <= "5.9"' id="gradezagueirodireito" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Direito)" && item.grade >= "6" && item.grade <= "6.9"' id="gradezagueirodireito" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Zagueiro (Direito)" && item.grade >= "7"' id="gradezagueirodireito" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divlateralesquerdo">
+            <img *ngIf='item.position=="Lateral (Esquerdo)"' id="lateralesquerdo" src="{{item.photo}}" alt="lateralesquerdo">
+            <img *ngIf='item.position=="Lateral (Esquerdo)" && item.bestplayer==true' id="coroalateralesquerdo" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Lateral (Esquerdo)"' id="nmlateralesquerdo">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Esquerdo)" && item.grade == ""' id="gradelateralesquerdo" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Esquerdo)" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradelateralesquerdo"
+                style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Esquerdo)" && item.grade >= "1" && item.grade <= "4.9"' id="gradelateralesquerdo" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Esquerdo)" && item.grade >= "5" && item.grade <= "5.9"' id="gradelateralesquerdo" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Esquerdo)" && item.grade >= "6" && item.grade <= "6.9"' id="gradelateralesquerdo" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Esquerdo)" && item.grade >= "7"' id="gradelateralesquerdo" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divlateraldireito">
+            <img *ngIf='item.position=="Lateral (Direito)"' id="lateraldireito" src="{{item.photo}}" alt="lateraldireito">
+            <img *ngIf='item.position=="Lateral (Direito)" && item.bestplayer==true' id="coroalateraldireito" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Lateral (Direito)"' id="nmlateraldireito">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Direito)" && item.grade == ""' id="gradelateraldireito" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Direito)" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradelateraldireito" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Direito)" && item.grade >= "1" && item.grade <= "4.9"' id="gradelateraldireito" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Direito)" && item.grade >= "5" && item.grade <= "5.9"' id="gradelateraldireito" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Direito)" && item.grade >= "6" && item.grade <= "6.9"' id="gradelateraldireito" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Lateral (Direito)" && item.grade >= "7"' id="gradelateraldireito" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+
+        <div id="divvolanteesquerdo" *ngIf="matchStrategy=='4-2-3-1' || matchStrategy=='4-1-2-1-2'">
+            <img *ngIf='item.position=="Volante (Esquerdo)"' id="volanteesquerdo" src="{{item.photo}}" alt="volanteesquerdo">
+            <img *ngIf='item.position=="Volante (Esquerdo)" && item.bestplayer==true' id="coroavolanteesquerdo" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Volante (Esquerdo)"' id="nmvolanteesquerdo">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Esquerdo)" && item.grade == ""' id="gradevolanteesquerdo" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Esquerdo)" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradevolanteesquerdo"
+                style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Esquerdo)" && item.grade >= "1" && item.grade <= "4.9"' id="gradevolanteesquerdo" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Esquerdo)" && item.grade >= "5" && item.grade <= "5.9"' id="gradevolanteesquerdo" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Esquerdo)" && item.grade >= "6" && item.grade <= "6.9"' id="gradevolanteesquerdo" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Esquerdo)" && item.grade >= "7"' id="gradevolanteesquerdo" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+
+        <div id="divvolantecentral" *ngIf="matchStrategy=='4-1-4-1' || matchStrategy=='4-1-2-1-2'">
+            <img *ngIf='item.position=="Volante (Central)"' id="volantecentral" src="{{item.photo}}" alt="volantecentral">
+            <img *ngIf='item.position=="Volante (Central)" && item.bestplayer==true' id="coroavolantecentral" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Volante (Central)"' id="nmvolantecentral">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Central)" && item.grade == ""' id="gradevolantecentral" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Central)" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradevolantecentral" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Central)" && item.grade >= "1" && item.grade <= "4.9"' id="gradevolantecentral" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Central)" && item.grade >= "5" && item.grade <= "5.9"' id="gradevolantecentral" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Central)" && item.grade >= "6" && item.grade <= "6.9"' id="gradevolantecentral" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Central)" && item.grade >= "7"' id="gradevolantecentral" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+
+        <div id="divvolantedireito" *ngIf="matchStrategy=='4-2-3-1' || matchStrategy=='4-1-2-1-2'">
+            <img *ngIf='item.position=="Volante (Direito)"' id="volantedireito" src="{{item.photo}}" alt="volantedireito">
+            <img *ngIf='item.position=="Volante (Direito)" && item.bestplayer==true' id="coroavolantedireito" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Volante (Direito)"' id="nmvolantedireito">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Direito)" && item.grade == ""' id="gradevolantedireito" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Direito)" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradevolantedireito" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Direito)" && item.grade >= "1" && item.grade <= "4.9"' id="gradevolantedireito" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Direito)" && item.grade >= "5" && item.grade <= "5.9"' id="gradevolantedireito" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Direito)" && item.grade >= "6" && item.grade <= "6.9"' id="gradevolantedireito" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Volante (Direito)" && item.grade >= "7"' id="gradevolantedireito" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divmeiaesquerdo" *ngIf="matchStrategy=='4-1-4-1' || matchStrategy=='4-1-2-1-2'">
+            <img *ngIf='item.position=="Meia (Esquerdo)"' id="meiaesquerdo" src="{{item.photo}}" alt="meiaesquerdo">
+            <img *ngIf='item.position=="Meia (Esquerdo)" && item.bestplayer==true' id="coroameiaesquerdo" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Meia (Esquerdo)"' id="nmmeiaesquerdo">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Esquerdo)" && item.grade == ""' id="grademeiaesquerdo" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Esquerdo)" && item.grade <= "0.9" && item.grade >= "0.1"' id="grademeiaesquerdo" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Esquerdo)" && item.grade >= "1" && item.grade <= "4.9"' id="grademeiaesquerdo" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Esquerdo)" && item.grade >= "5" && item.grade <= "5.9"' id="grademeiaesquerdo" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Esquerdo)" && item.grade >= "6" && item.grade <= "6.9"' id="grademeiaesquerdo" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Esquerdo)" && item.grade >= "7"' id="grademeiaesquerdo" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divmeiacentral" *ngIf="matchStrategy=='4-2-3-1' || matchStrategy=='4-1-2-1-2'">
+            <img *ngIf='item.position=="Meia (Central)"' id="meiacentral" src="{{item.photo}}" alt="meiacentral">
+            <img *ngIf='item.position=="Meia (Central)" && item.bestplayer==true' id="coroameiacentral" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Meia (Central)"' id="nmmeiacentral">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Central)" && item.grade == ""' id="grademeiacentral" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Central)" && item.grade <= "0.9" && item.grade >= "0.1"' id="grademeiacentral" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Central)" && item.grade >= "1" && item.grade <= "4.9"' id="grademeiacentral" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Central)" && item.grade >= "5" && item.grade <= "5.9"' id="grademeiacentral" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Central)" && item.grade >= "6" && item.grade <= "6.9"' id="grademeiacentral" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Central)" && item.grade >= "7"' id="grademeiacentral" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divmeiadireito" *ngIf="matchStrategy=='4-1-4-1' || matchStrategy=='4-1-2-1-2'">
+            <img *ngIf='item.position=="Meia (Direito)"' id="meiadireito" src="{{item.photo}}" alt="meiadireito">
+            <img *ngIf='item.position=="Meia (Direito)" && item.bestplayer==true' id="coroameiadireito" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Meia (Direito)"' id="nmmeiadireito">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Direito)" && item.grade == ""' id="grademeiadireito" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Direito)" && item.grade <= "0.9" && item.grade >= "0.1"' id="grademeiadireito" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Direito)" && item.grade >= "1" && item.grade <= "4.9"' id="grademeiadireito" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Direito)" && item.grade >= "5" && item.grade <= "5.9"' id="grademeiadireito" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Direito)" && item.grade >= "6" && item.grade <= "6.9"' id="grademeiadireito" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Meia (Direito)" && item.grade >= "7"' id="grademeiadireito" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divpontaesquerdo" *ngIf="matchStrategy=='4-2-3-1' || matchStrategy=='4-1-4-1'">
+            <img *ngIf='item.position=="Ponta (Esquerdo)"' id="pontaesquerdo" src="{{item.photo}}" alt="pontaesquerdo">
+            <img *ngIf='item.position=="Ponta (Esquerdo)" && item.bestplayer==true' id="coroapontaesquerdo" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Ponta (Esquerdo)"' id="nmpontaesquerdo">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Esquerdo)" && item.grade == ""' id="gradepontaesquerdo" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Esquerdo)" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradepontaesquerdo" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Esquerdo)" && item.grade >= "1" && item.grade <= "4.9"' id="gradepontaesquerdo" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Esquerdo)" && item.grade >= "5" && item.grade <= "5.9"' id="gradepontaesquerdo" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Esquerdo)" && item.grade >= "6" && item.grade <= "6.9"' id="gradepontaesquerdo" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Esquerdo)" && item.grade >= "7"' id="gradepontaesquerdo" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divpontadireito" *ngIf="matchStrategy=='4-2-3-1' || matchStrategy=='4-1-4-1'">
+            <img *ngIf='item.position=="Ponta (Direito)"' id="pontadireito" src="{{item.photo}}" alt="pontadireito">
+            <img *ngIf='item.position=="Ponta (Direito)" && item.bestplayer==true' id="coroapontadireito" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Ponta (Direito)"' id="nmpontadireito">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Direito)" && item.grade == ""' id="gradepontadireito" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Direito)" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradepontadireito" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Direito)" && item.grade >= "1" && item.grade <= "4.9"' id="gradepontadireito" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Direito)" && item.grade >= "5" && item.grade <= "5.9"' id="gradepontadireito" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Direito)" && item.grade >= "6" && item.grade <= "6.9"' id="gradepontadireito" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Ponta (Direito)" && item.grade >= "7"' id="gradepontadireito" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divcentroavante" *ngIf="matchStrategy=='4-2-3-1' || matchStrategy=='4-1-4-1'">
+            <img *ngIf='item.position=="Centroavante"' id="centroavante" src="{{item.photo}}" alt="centroavante">
+            <img *ngIf='item.position=="Centroavante" && item.bestplayer==true' id="coroacentroavante" src="https://trofeuavai.github.io/webapp/assets/coroa.png" alt="coroa">
+            <span *ngIf='item.position=="Centroavante"' id="nmcentroavante">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Centroavante" && item.grade == ""' id="gradecentroavante" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Centroavante" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradecentroavante" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Centroavante" && item.grade >= "1" && item.grade <= "4.9"' id="gradecentroavante" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Centroavante" && item.grade >= "5" && item.grade <= "5.9"' id="gradecentroavante" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Centroavante" && item.grade >= "6" && item.grade <= "6.9"' id="gradecentroavante" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Centroavante" && item.grade >= "7"' id="gradecentroavante" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divatacanteesquerdo" *ngIf="matchStrategy=='4-1-2-1-2'">
+            <img *ngIf='item.position=="Atacante (Esquerdo)"' id="atacanteesquerdo" src="{{item.photo}}" alt="atacanteesquerdo">
+            <img *ngIf='item.position=="Atacante (Esquerdo)" && item.bestplayer==true' id="coroaatacanteesquerdo" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Atacante (Esquerdo)"' id="nmatacanteesquerdo">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Esquerdo)" && item.grade == ""' id="gradeatacanteesquerdo" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Esquerdo)" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradeatacanteesquerdo"
+                style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Esquerdo)" && item.grade >= "1" && item.grade <= "4.9"' id="gradeatacanteesquerdo"
+                style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Esquerdo)" && item.grade >= "5" && item.grade <= "5.9"' id="gradeatacanteesquerdo"
+                style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Esquerdo)" && item.grade >= "6" && item.grade <= "6.9"' id="gradeatacanteesquerdo"
+                style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Esquerdo)" && item.grade >= "7"' id="gradeatacanteesquerdo" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divatacantedireito" *ngIf="matchStrategy=='4-1-2-1-2'">
+            <img *ngIf='item.position=="Atacante (Direito)"' id="atacantedireito" src="{{item.photo}}" alt="atacantedireito">
+            <img *ngIf='item.position=="Atacante (Direito)" && item.bestplayer==true' id="coroaatacantedireito" src="https://trofeuavai.github.io/webapp/assets/coroa.png"
+                alt="coroa">
+            <span *ngIf='item.position=="Atacante (Direito)"' id="nmatacantedireito">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Direito)" && item.grade == ""' id="gradeatacantedireito" style="background-color:#b8b894">
+                <b id="sn">S/N</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Direito)" && item.grade <= "0.9" && item.grade >= "0.1"' id="gradeatacantedireito"
+                style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Direito)" && item.grade >= "1" && item.grade <= "4.9"' id="gradeatacantedireito" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Direito)" && item.grade >= "5" && item.grade <= "5.9"' id="gradeatacantedireito" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Direito)" && item.grade >= "6" && item.grade <= "6.9"' id="gradeatacantedireito" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='item.position=="Atacante (Direito)" && item.grade >= "7"' id="gradeatacantedireito" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+
+    </div>
+    <div id="imgSubstitutes" *ngFor="let item of substitutes | async; let i = index" [attr.data-index]="i">
+        <div id="divreserva1">
+            <img *ngIf='i==0' id="reserva1" src="{{item.photo}}" alt="substitute1">
+            <img *ngIf='i==0 && item.bestplayer==true' id="coroareserva1" src="https://trofeuavai.github.io/webapp/assets/coroa.png" alt="coroa">
+            <span *ngIf='i==0' id="nmreserva1">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='i==0 && item.grade == ""' id="gradereserva1" style="background-color:#b8b894">
+                <b>S/N</b>
+            </span>
+            <span *ngIf='i==0 && item.grade <= "0.9" && item.grade >= "0.1"' id="gradereserva1" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==0 && item.grade >= "1" && item.grade <= "4.9"' id="gradereserva1" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==0 && item.grade >= "5" && item.grade <= "5.9"' id="gradereserva1" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==0 && item.grade >= "6" && item.grade <= "6.9"' id="gradereserva1" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==0 && item.grade >= "7"' id="gradereserva1" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divreserva2">
+            <img *ngIf='i==1' id="reserva2" src="{{item.photo}}" alt="substitute2">
+            <img *ngIf='i==1 && item.bestplayer==true' id="coroareserva2" src="https://trofeuavai.github.io/webapp/assets/coroa.png" alt="coroa">
+            <span *ngIf='i==1' id="nmreserva2">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='i==1 && item.grade == ""' id="gradereserva2" style="background-color:#b8b894">
+                <b>S/N</b>
+            </span>
+            <span *ngIf='i==1 && item.grade <= "0.9" && item.grade >= "0.1"' id="gradereserva2" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==1 && item.grade >= "1" && item.grade <= "4.9"' id="gradereserva2" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==1 && item.grade >= "5" && item.grade <= "5.9"' id="gradereserva2" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==1 && item.grade >= "6" && item.grade <= "6.9"' id="gradereserva2" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==1 && item.grade >= "7"' id="gradereserva2" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+        <div id="divreserva3">
+            <img *ngIf='i==2' id="reserva3" src="{{item.photo}}" alt="substitute3">
+            <img *ngIf='i==2 && item.bestplayer==true' id="coroareserva3" src="https://trofeuavai.github.io/webapp/assets/coroa.png" alt="coroa">
+            <span *ngIf='i==2' id="nmreserva3">
+                <b>{{item.name}}</b>
+            </span>
+            <span *ngIf='i==2 && item.grade == ""' id="gradereserva3" style="background-color:#b8b894">
+                <b>S/N</b>
+            </span>
+            <span *ngIf='i==2 && item.grade <= "0.9" && item.grade >= "0.1"' id="gradereserva3" style="background-color:#aa0808">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==2 && item.grade >= "1" && item.grade <= "4.9"' id="gradereserva3" style="background-color:#fb3f3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==2 && item.grade >= "5" && item.grade <= "5.9"' id="gradereserva3" style="background-color:#fb9c3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==2 && item.grade >= "6" && item.grade <= "6.9"' id="gradereserva3" style="background-color:#ecfb3f">
+                <b>{{item.grade}}</b>
+            </span>
+            <span *ngIf='i==2 && item.grade >= "7"' id="gradereserva3" style="background-color:#2ded14">
+                <b>{{item.grade}}</b>
+            </span>
+        </div>
+    </div>
+    <img id="logotrofeuavai" src="https://trofeuavai.github.io/webapp/assets/logo.png" alt="logotrofeuavai">
+    <div id="mediaequipe" *ngIf="showAverage">
+        <span *ngIf='average == ""' id="average" style="background-color:#b8b894">
+            <b>S/N</b>
+        </span>
+        <span *ngIf='average <= "0.9" && average >= "0.1"' id="average" style="background-color:#aa0808">
+            <b>{{average}}</b>
+        </span>
+        <span *ngIf='average >= "1" && average <= "4.9"' id="average" style="background-color:#fb3f3f">
+            <b>{{average}}</b>
+        </span>
+        <span *ngIf='average >= "5" && average <= "5.9"' id="average" style="background-color:#fb9c3f">
+            <b>{{average}}</b>
+        </span>
+        <span *ngIf='average >= "6" && average <= "6.9"' id="average" style="background-color:#ecfb3f">
+            <b>{{average}}</b>
+        </span>
+        <span *ngIf='average >= "7"' id="average" style="background-color:#2ded14">
+            <b>{{average}}</b>
+        </span>
+        <span id="nmaverage">
+            <b>Média da Equipe</b>
+        </span>
+    </div>
+    <!-- <img id="substituicao" *ngIf="showAverage" src="https://trofeuavai.github.io/webapp/assets/substituicao.png" alt="substituicao"> -->
+    <div id="team" *ngIf="showAverage">
+        <img id="teamphoto" src="{{team.photo}}" alt="teamphoto">
+    </div>
+    <div id="opponent" *ngIf="showAverage">
+        <img id="opponentphoto" src="{{opponent.photo}}" alt="opponentphoto">
+    </div>
+    <div id="divscore">
+        <span id="score" *ngIf="showAverage">
+            <b>{{score}}</b>
+        </span>
+
+    </div>
+    <div id="divmatchinformation">
+        <span id="matchinformation" *ngIf="showAverage">
+            <b>{{championship}} - {{round}} Rodada - {{date}}</b>
+        </span>
+    </div>
+</div>

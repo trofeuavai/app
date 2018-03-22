@@ -1,0 +1,114 @@
+<ol id="breadcrumb" class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a routerLink="">Home</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a routerLink="/matches">Partidas</a>
+  </li>
+  <li class="breadcrumb-item active">Editar Jogadores da Partida</li>
+</ol>
+
+<div id="divtable" class="container-fluid">
+  <div class="row">
+    <table id="playerstable" class="table">
+      <thead class="thead-default">
+        <tr>
+          <th>Jogador</th>
+          <th>Nota</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="rows">
+        <span id="zeroplayers" *ngIf="(playersMatch | async)?.length==0">
+          <b>Nenhum jogador encontrado.</b>
+        </span>
+        <tr *ngFor="let item of playersMatch | async">
+          <td id="td1">{{item.name}}</td>
+          <td id="td2" *ngIf="item.grade!=''">{{item.grade}}</td>
+          <td id="td4" *ngIf="item.grade==''">S/N</td>
+          <td id="td3">
+            <div id="buttonbar">
+              <i id="trashicon" class="fa fa-trash fa-lg" aria-hidden="true" data-toggle="tooltip" title="Remover Pessoa" (click)="deleteItem(item)"></i>
+            </div>
+          </td>
+        </tr>
+        <tr *ngFor="let item of substitutesMatch | async">
+          <td id="td1">{{item.name}} (Reserva)</td>
+          <td id="td2" *ngIf="item.grade!=''">{{item.grade}}</td>
+          <td id="td4" *ngIf="item.grade==''">S/N</td>
+          <td id="td3">
+            <div id="buttonbar">
+              <i id="trashicon" class="fa fa-trash fa-lg" aria-hidden="true" data-toggle="tooltip" title="Remover Pessoa" (click)="deleteItem(item)"></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<div id="qtdregistros" *ngIf="(playersMatch | async)?.length>0">
+  <span>
+    Encontrado {{(playersMatch | async)?.length}} registro(s).
+  </span>
+</div>
+
+<div id="divform">
+  <form id="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group row">
+      <label for="inputplayers" class="col-sm-2 col-form-label">Jogador*: </label>
+      <div class="col-sm-8">
+        <select name="player" class="form-control input-sm" id="selectplayer" ngModel required #player="ngModel">
+          <option value="" disabled selected>Selecione o jogador</option>
+          <option *ngFor="let item of players | async" [ngValue]="item">{{item.name}} - {{item.position}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="form-check" id="divsubstitute">
+        <label id="substitutelabel" class="form-check-label" for="substitute">Reserva ?</label>
+        <input type="checkbox" class="form-check-input" id="substitute" name="substitute" ngModel #substitute="ngModel">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="form-check" id="divbestplayer">
+        <label id="bestplayerlabel" class="form-check-label" for="bestplayer">Craque da Rodada ?</label>
+        <input type="checkbox" class="form-check-input" id="bestplayer" name="bestplayer" ngModel #bestplayer="ngModel">
+      </div>
+    </div>
+    <div class="form-group row has-danger" [class.has-danger]="!grade.valid && grade.touched" [class.has-feedback]="!grade.valid && grade.touched">
+      <label for="inputgrade" class="col-sm-2 col-form-label">Nota*:</label>
+      <div class="col-sm-8">
+        <input type="text" name="grade" class="form-control" id="inputgrade" placeholder="Nota" ngModel #grade="ngModel">
+        <div class="form-control-feedback" *ngIf="!grade.valid && grade.touched">
+          Campo "Nota" é obrigatório.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-4">
+        <button id="btnsave" type="submit" class="btn btn-primary" [disabled]="!f.valid">Salvar</button>
+      </div>
+
+    </div>
+    <div class="form-group row">
+      <div id="addDone" *ngIf="addDone">
+        <strong>OK</strong> Jogador inserido !
+      </div>
+      <div id="addFail" *ngIf="addFail">
+          <strong>Falhou</strong> Jogador não inserido !
+      </div>
+
+        <div id="removeDone" *ngIf="removeDone">
+          <strong>OK</strong> Jogador removido !
+        </div>
+        <div id="removeFail" *ngIf="removeFail">
+            <strong>Falhou</strong> Jogador não removido !
+        </div>
+    </div>
+  </form>
+
+
+</div>
